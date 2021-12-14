@@ -87,6 +87,7 @@ Route::get('/admin/message',[ContactController::class,'adminMessage'])->name('ad
 Route::get('/delete-message/{id}',[ContactController::class,'deleteMessage'])->name('delete.message');
 //home contact
 Route::get('/contact',[ContactController::class,'contact'])->name('contact');
+Route::get('/services',[ContactController::class,'services'])->name('services');
 Route::post('/contact/form',[ContactController::class,'contactForm'])->name('contact.form');
 
 

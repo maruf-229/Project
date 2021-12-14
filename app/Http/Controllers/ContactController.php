@@ -87,6 +87,10 @@ class ContactController extends Controller
         return view('pages.contact',compact('contacts'));
     }
 
+    public function services(){
+        return view('pages.services');
+    }
+
     public function contactForm(Request $request){
         ContactForm::insert([
             'name'=>$request->name,
