@@ -28,8 +28,12 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //    $users=User::all();
 //    $users=DB::table('users')->get();
-    return view('admin.index');
+    $brands=DB::table('brands')->get();
+    $abouts=DB::table('home_abouts')->first();
+    $images=Multipic::all();
+    return view('home',compact('brands','abouts','images'));
 })->name('dashboard');
+
 Route::get('/user/logout',[AuthinticateController::class,'logout'])->name('user.logout');
 
 //  ========================
@@ -74,7 +78,7 @@ Route::get('/delete-about/{id}',[AboutController::class,'deleteAbout'])->name('d
 
 
 //Portfolio
-Route::get('/portfolio',[AboutController::class,'portfolio'])->name('portfolio');
+Route::get('/portfolio',[ContactController::class,'portfolio'])->name('portfolio');
 
 //Admin contact page
 Route::get('/admin/contact',[ContactController::class,'adminContact'])->name('admin.contact');

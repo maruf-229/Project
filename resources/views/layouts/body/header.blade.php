@@ -6,13 +6,22 @@
         <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
         <nav class="nav-menu d-none d-lg-block">
-            <ul>
-                <li class="active"><a href="{{ url('/') }}">Home</a></li>
-                <li><a href="{{ route('services') }}">Services</a></li>
-                <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
-                <li><a href="{{ route('contact') }}">Contact</a></li>
-                <li><a href="{{ route('login') }}">Login</a></li>
 
+
+            <ul>
+
+                @auth
+                    <li class="active"><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="{{ route('services') }}">Services</a></li>
+                    <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
+                    <li><a href="{{ route('contact') }}">Contact</a></li>
+                    <li><a href="{{ route('user.logout') }}">Logout</a></li>
+                @else
+                    <li class="active"><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="{{ route('services') }}">Services</a></li>
+                    <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
+                    <li><a href="{{ route('contact') }}">Contact</a></li>
+                @endauth
             </ul>
         </nav><!-- .nav-menu -->
 

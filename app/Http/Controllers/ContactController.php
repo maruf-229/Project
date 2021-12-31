@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\ContactForm;
+use App\Models\Multipic;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -102,5 +103,10 @@ class ContactController extends Controller
         ]);
 
         return Redirect()->route('contact')->with('success','Your Message Sent Successfully');
+    }
+
+    public function portfolio(){
+        $images=Multipic::all();
+        return view('pages.portfolio',compact('images'));
     }
 }
